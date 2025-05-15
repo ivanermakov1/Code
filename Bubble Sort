@@ -1,0 +1,26 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+
+
+int main() {
+ 
+    int numbers[] = {5, 2, 9, 1, 6};
+    int n = 5;
+    
+    for(int j = n - 1; j > 0; j--){
+        for(int i = 0; i < j; i++){
+            if(numbers[i] > numbers[i + 1]){
+                swap(numbers[i], numbers[i + 1]);
+            }
+        }
+    }
+    
+    cout<< "Array sorted using Bubble Sort:\n";
+    for(int i = 0; i < n; i++){
+        cout<< numbers[i];
+    }
+}
