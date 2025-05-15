@@ -1,0 +1,72 @@
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+const int SIZE = 100;
+
+void replace_by_last_element(int a[], unsigned &n, unsigned pos);
+
+void shifting_elements_left(int a[], unsigned &n, unsigned pos);
+
+void add_element(int a[], unsigned &n, int value);
+
+int main() {
+ 
+    int numbers[100] = {5, 2, 9, 1, 6};
+    unsigned n = 5;
+    
+    unsigned pos = 1;
+    
+    replace_by_last_element(numbers, n , pos);
+    
+    cout << "Array after removing element at position " << pos << ":\n";
+    for (unsigned i = 0; i < n; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+    
+    unsigned pos_2 = 0;
+    
+    shifting_elements_left(numbers, n, pos_2);
+    
+    cout << "Array shifting elemets to the left at position " << pos_2 << ":\n";
+    for (unsigned i = 0; i < n; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+    
+    int value = 32;
+    
+    add_element(numbers , n, value);
+    
+    cout << "Array after add the element " << value << ":\n";
+    for (unsigned i = 0; i < n; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+    
+}
+
+void replace_by_last_element(int a[], unsigned &n, unsigned pos){
+    if(pos < n - 1){
+        swap(a[pos], a[n - 1]);
+    }
+    n--;
+}
+
+void shifting_elements_left(int a[], unsigned &n, unsigned pos){
+    for(int i = pos; i < n - 1; i++){
+        swap(a[i], a[i + 1]);
+    }
+    n--;
+}
+
+void add_element(int a[], unsigned &n, int value) {
+    if (n < SIZE) {
+        a[n] = value;
+        n++;
+    } else {
+        cout << "Error: Array is full, cannot add more elements.\n";
+    }
+}
