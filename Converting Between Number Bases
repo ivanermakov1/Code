@@ -1,0 +1,28 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+
+
+using namespace std;
+
+
+int main() {
+    
+    unsigned number;
+    
+    cout<< "Give me a number to convert to binary:\t";
+    cin>> number;
+    
+    string binary = "";
+    
+    while(number > 0){
+        binary = to_string(number % 2) + binary;
+        number /= 2;
+    }
+    
+    cout<< "This is your number after converting it to binary: " << binary << endl;
+    
+    
+    return 0;
+    
+}
