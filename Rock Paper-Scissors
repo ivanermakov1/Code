@@ -1,0 +1,32 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+
+
+using namespace std;
+
+
+int main() {
+    
+  string user, computer;
+  string choices[] = {"Rock", "Paper", "Scissors"};
+  computer = choices[rand() % 3];
+  
+  
+  cout<< "Choose between Rock, Paper, Scissors:\n";
+  cin>> user;
+  
+  cout<< "The computer choose: " << computer << endl;
+  
+  if(user == computer){
+      cout<< "It is a tie!\n";
+  }
+  else if((user == "Rock" && computer == "Scissors") || (user == "Paper" && computer == "Rock") || (user == "Scissors" && computer == "Paper")){
+      cout<< "You win!\n";
+  }
+  else{
+      cout<< "You lose!\n";
+  }
+    
+    return 0;   
+}
