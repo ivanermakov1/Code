@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+const int SIZE = 100;
+
+int position_binary(const int a[], unsigned &n, int target);
+
+int main() {
+ 
+    int numbers[100] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    unsigned n = 10;
+    
+    int target = 6;
+    int position_of_6 = position_binary(numbers, n, target);
+    
+    cout<< "This is the position of 6 using binary search: " << position_of_6 << endl;
+    
+}
+
+int position_binary(const int a[], unsigned &n, int target){
+    int left = 0;
+    int right = n - 1;
+    while(left <= right){
+        int middle = (left + right) / 2;
+        if(a[middle] == target){
+            return middle;
+        }
+        else if(a[middle] > target){
+            right = middle - 1;
+        }
+        else {
+            left = middle + 1;
+        }
+    }
+    return n;
+}
