@@ -1,0 +1,24 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+
+
+using namespace std;
+
+
+int main() {
+    
+    unsigned age;
+    
+    do{
+        cout<< "Give me an age between 1 and 20:\n";
+        cin>> age;
+        if(age >= 1 && age <= 20){
+            cout<< "Thank You for giving me age: " << age << endl;
+        }
+        else {
+            cout<< "Wrong Age.\n";
+        }
+    } while (age < 1 || age > 20);
+        
+}
