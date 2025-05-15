@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+const int SIZE = 100;
+
+unsigned position_linear(const string a[], unsigned &n, string s);
+
+int main() {
+ 
+    string names[100] = {"LeBron James","Stephen Curry","Kevin Durant","Giannis Antetokounmpo","Luka Doncic","Jayson Tatum",
+    "Nikola Jokic","Joel Embiid","Jimmy Butler","Devin Booker"};
+    unsigned n = 10;
+    
+    string s = "Stephen Curry";
+    unsigned position_curry = position_linear(names, n, s);
+    
+    cout<< "This is the index of Stephen Curry using linear search: " << position_curry << endl;
+    
+}
+
+unsigned position_linear(const string a[], unsigned &n, string s){
+    for(int i = 0; i < n; i++){
+        if(a[i] == s){
+            return i;
+        }
+    }
+    return n;
+}
