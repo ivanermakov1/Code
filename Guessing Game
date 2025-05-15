@@ -1,0 +1,29 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+
+using namespace std;
+
+
+int main() {
+    
+    unsigned secret_number = 7, guess, guess_limit = 5, amount_of_guesses;
+    
+    do{
+        cout<< "Guess the secret number:\t";
+        cin>> guess;
+        if(guess == secret_number){
+            cout<< "Congrats you guessed the number!\n";
+            return 1;
+        }
+        else {
+            amount_of_guesses++;
+        }
+    } while(amount_of_guesses != guess_limit);
+        cout<< "You ran out of guesses!\n";
+    
+    
+    
+    return 0;
+    
+}
