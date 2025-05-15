@@ -1,0 +1,51 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<cstdlib>
+#include<ctime>
+
+
+using namespace std;
+
+
+int main() {
+    
+    srand(time(NULL));
+    
+    
+    unsigned rounds;
+    unsigned attempts = 0;
+    unsigned total = 0;
+    unsigned lowest_roll = 12;
+    unsigned highest_roll = 2;
+    
+    cout<< "How many rounds do you want to roll?\t";
+    cin>> rounds;
+    
+    while(attempts != rounds){
+        int dice_1 = rand() % 6 + 1;
+        int dice_2 = rand() % 6 + 1;
+        total = dice_1 + dice_2;
+        attempts++;
+        cout<< "Dice Values: " << dice_1 << ", " << dice_2 << endl;
+    
+    if(total < lowest_roll){
+        lowest_roll = total;
+    }
+    
+    if(total > highest_roll){
+        highest_roll = total;
+    }
+    
+    }
+    
+    cout<< endl;
+    
+    cout<< "This is your lowest roll:\t" << lowest_roll << endl;
+    cout<< "This is your highest roll:\t" << highest_roll << endl;
+    
+    
+    
+    return 0;
+    
+}
