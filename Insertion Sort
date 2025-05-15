@@ -1,0 +1,26 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+
+
+int main() {
+ 
+    int numbers[] = {5, 2, 9, 1, 6};
+    int n = 5;
+    
+    for(int j = 1; j < n; j++){
+        for(int i = j; i > 0; i--){
+            if(numbers[i - 1] > numbers[i]){
+                swap(numbers[i - 1], numbers[i]);
+            }
+        }
+    }
+    
+    cout<< "Array sorted using Insetion Sort:\n";
+    for(int i = 0; i < n; i++){
+        cout<< numbers[i];
+    }
+}
