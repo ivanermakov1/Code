@@ -1,0 +1,69 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+const int SIZE = 100; // Maximum number of players
+
+struct Player {
+    string name;
+    string team;
+    int points;
+    int rebounds;
+    int assists;
+};
+
+int main() {
+    string file_name;
+    ifstream fin;
+
+    // Prompt user for file name until it successfully opens
+    do {
+        cout << "Enter the file name to access 2023-2024 NBA season stats:\t";
+        getline(cin, file_name);
+        fin.open(file_name);
+        if (!fin.is_open()) {
+            cout << "Error: Unable to open file. Try again.\n";
+        }
+    } while (!fin.is_open());
+
+    Player players[SIZE]; // Array to store players
+    Player c;             // Temporary player object to read into
+    int n = 0;            // Number of valid players read
+    char comma;
+
+    fin.ignore(1000, '\n'); // Skip header line
+
+    // Read CSV content
+    while (
+        getline(fin, c.name, ',') &&
+        getline(fin, c.team, ',') &&
+        fin >> c.points >> comma
+            >> c.rebounds >> comma
+            >> c.assists
+    ) {
+        players[n++] = c;
+        fin.ignore(1000, '\n'); // Skip to next line
+    }
+
+    fin.close();
+
+    // Display the table of players
+    cout << left << setw(20) << "Name"
+         << setw(15) << "Team"
+         << setw(10) << "Points"
+         << setw(10) << "Rebounds"
+         << setw(10) << "Assists" << endl;
+
+
+    for (int i = 0; i < n; i++) {
+        cout << left << setw(20) << players[i].name
+             << setw(15) << players[i].team
+             << setw(10) << players[i].points
+             << setw(10) << players[i].rebounds
+             << setw(10) << players[i].assists << endl;
+    }
+
+    return 0;
+}
