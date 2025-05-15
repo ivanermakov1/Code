@@ -1,0 +1,25 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+
+
+using namespace std;
+
+
+int main() {
+    
+    unsigned choice;
+    
+    do{
+        cout<< "Choose 1 to start game,  or 2 to end: " << endl;
+        cin>> choice;
+        if(choice == 1){
+            cout<< "Game will start!" << endl;
+        }
+        if(choice == 2){
+            cout<< "Game will end!" << endl;
+            return 1;
+        }
+    } while(choice < 1 || choice > 2);
+        
+}
